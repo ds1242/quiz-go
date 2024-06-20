@@ -7,9 +7,27 @@ import (
 	"os"
 )
 
-func main()  {
-	questionMap := make(map[string]string)
+type QuestionAnswer struct {
+	Question string 
+	Answer string
+}
 
+func main()  {
+
+	err, questionMap := readCSV("problems.csv")
+	if err != nil {
+		panic(err)
+	}
+	
+
+	for key, val := range questionMap {
+		fmt.Printf("%s = %s\n", key, val)
+	}
+}
+
+
+func readCSV(path string) (error, map[string]string) {
+	questionMap := make(map[string]string)
 	file, err := os.Open("problems.csv")
 	if err != nil {
 		panic(err)
@@ -26,8 +44,5 @@ func main()  {
 	for _, row := range data {
 		questionMap[row[0]] = row[1]
 	}
-
-	for key, val := range questionMap {
-		fmt.Printf("%s = %s\n", key, val)
-	}
+	return nil, questionMap
 }
