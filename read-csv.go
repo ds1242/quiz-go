@@ -5,7 +5,7 @@ import (
 	"encoding/csv"
 )
 
-func ReadCSV(path string) (error, map[string]string) {
+func ReadCSV(path string) (map[string]string, error) {
 	questionMap := make(map[string]string)
 	file, err := os.Open("problems.csv")
 	if err != nil {
