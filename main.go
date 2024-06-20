@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 )
 
 type QuestionAnswer struct {
@@ -16,9 +16,7 @@ func main()  {
 		panic(err)
 	}
 	
+	startRepl(questionMap)
 
-	for key, val := range questionMap {
-		fmt.Printf("%s = %s\n", key, val)
-	}
 }
 
