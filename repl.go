@@ -9,9 +9,28 @@ import (
 
 
 func startRepl(quiz *Quiz) {
+	reader := bufio.NewScanner(os.Stdin)
+	
 	for key, val := range quiz.QuestionMap {
-		fmt.Printf("%s = %s\n", key, val)
+
+		fmt.Printf("%s =", key)
+		reader.Scan()
+
+		words := cleanInput(reader.Text())
+		if len(words) == 0 {
+			fmt.Print("no answer provided, moving to the next question\n")
+			continue
+		}
+
+		answer := words[0]
+
+		if answer == val {
+			quiz.Score++
+		}
+		
+		
 	}
+	
 }
 
 
