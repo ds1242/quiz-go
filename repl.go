@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
-	"bufio"
-	"os"
-	"strings"
+	// "bufio"
+	// "os"
+	// "strings"
 )
 
 
-func startRepl(questionMap map[string]string) {
-	for key, val := range questionMap {
+func startRepl(quiz *Quiz) {
+	for key, val := range quiz.QuestionMap {
 		fmt.Printf("%s = %s\n", key, val)
 	}
 }

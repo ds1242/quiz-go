@@ -4,9 +4,9 @@ import (
 	// "fmt"
 )
 
-type QuestionAnswer struct {
-	Question string 
-	Answer string
+type Quiz struct {
+	QuestionMap map[string]string 
+	Score int
 }
 
 func main()  {
@@ -16,7 +16,13 @@ func main()  {
 		panic(err)
 	}
 	
-	startRepl(questionMap)
+	quiz := &Quiz {
+		QuestionMap : questionMap,
+		Score: 0,
+	}
+
+
+	startRepl(quiz)
 
 }
 
