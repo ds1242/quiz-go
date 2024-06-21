@@ -5,24 +5,21 @@ import (
 )
 
 type Quiz struct {
-	QuestionMap map[string]string 
+	QuestionData []questionData
 	Score int
 }
 
-func main()  {
 
-	questionMap, err := ReadCSV("problems.csv")
+func main()  {
+	questionInfo, err := ReadCSV("problems.csv")
 	if err != nil {
 		panic(err)
 	}
 	
 	quiz := &Quiz {
-		QuestionMap : questionMap,
+		QuestionData : questionInfo,
 		Score: 0,
 	}
-
-
 	startRepl(quiz)
-
 }
 

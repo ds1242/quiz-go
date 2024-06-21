@@ -11,7 +11,7 @@ import (
 func startRepl(quiz *Quiz) {
 	reader := bufio.NewScanner(os.Stdin)
 	
-	for key, val := range quiz.QuestionMap {
+	for key, val := range quiz.QuestionData {
 
 		fmt.Printf("%s =", key)
 		reader.Scan()
@@ -24,9 +24,11 @@ func startRepl(quiz *Quiz) {
 
 		answer := words[0]
 
-		if answer == val {
-			quiz.Score++
-		}
+		// if answer == val {
+		// 	quiz.Score++
+		// }
+		fmt.Printf("question %s", val.Question)
+		fmt.Printf(answer)
 		
 		
 	}
