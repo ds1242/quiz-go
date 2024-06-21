@@ -10,9 +10,8 @@ import (
 
 func startRepl(quiz *Quiz) {
 	reader := bufio.NewScanner(os.Stdin)
-	
+	quizLength := len(quiz.QuestionData)
 	for key, val := range quiz.QuestionData {
-		quizLength := len(quiz.QuestionData)
 		fmt.Printf("Question #%d %s = ", key, val.Question)
 		reader.Scan()
 
@@ -26,15 +25,11 @@ func startRepl(quiz *Quiz) {
 
 		if answer == val.Answer {
 			quiz.Score++
-		}
-		if key == quizLength {
-			fmt.Printf("Your score is %d out of %d\n", quiz.Score, quizLength)
-			fmt.Println("Thanks for playing")
-			break
-		}
-		
+		}	
 		
 	}
+	fmt.Printf("Your score is %d / %d\n", quiz.Score, quizLength)
+	fmt.Println("Thanks for playing!!")
 	
 }
 
