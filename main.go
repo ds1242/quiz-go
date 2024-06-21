@@ -11,7 +11,7 @@ type Quiz struct {
 
 func main()  {
 
-	err, questionMap := ReadCSV("problems.csv")
+	questionMap, err := ReadCSV("problems.csv")
 	if err != nil {
 		panic(err)
 	}

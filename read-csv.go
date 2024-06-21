@@ -23,5 +23,5 @@ func ReadCSV(path string) (map[string]string, error) {
 	for _, row := range data {
 		questionMap[row[0]] = row[1]
 	}
-	return nil, questionMap
+	return questionMap, nil
 }
