@@ -1,12 +1,17 @@
 package main
 
 import (
-	"os"
 	"encoding/csv"
+	// "fmt"
+	"os"
 )
+type questionData struct {
+	Question string
+	Answer string
+}
 
-func ReadCSV(path string) (error, map[string]string) {
-	questionMap := make(map[string]string)
+func ReadCSV(path string) ([]questionData, error) {
+	questionInfo := make([]questionData, 0)
 	file, err := os.Open("problems.csv")
 	if err != nil {
 		panic(err)
@@ -21,7 +26,7 @@ func ReadCSV(path string) (error, map[string]string) {
 	}
 
 	for _, row := range data {
-		questionMap[row[0]] = row[1]
+		questionInfo = append(questionInfo, questionData{row[0], row[1]})
 	}
-	return nil, questionMap
+	return questionInfo, nil
 }
