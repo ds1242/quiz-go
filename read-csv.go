@@ -12,7 +12,7 @@ type questionData struct {
 
 func ReadCSV(path string) ([]questionData, error) {
 	questionInfo := make([]questionData, 0)
-	file, err := os.Open("problems.csv")
+	file, err := os.Open(path)
 	if err != nil {
 		panic(err)
 	}
