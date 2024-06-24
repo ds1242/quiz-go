@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/csv"
-	// "fmt"
+	"fmt"
 	"os"
 )
 type questionData struct {
@@ -11,8 +11,9 @@ type questionData struct {
 }
 
 func ReadCSV(path string) ([]questionData, error) {
+	fmt.Println(path)
 	questionInfo := make([]questionData, 0)
-	file, err := os.Open("problems.csv")
+	file, err := os.Open(path)
 	if err != nil {
 		panic(err)
 	}

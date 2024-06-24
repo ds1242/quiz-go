@@ -2,6 +2,7 @@ package main
 
 import (
 	// "fmt"
+	"flag"
 )
 
 type Quiz struct {
@@ -11,7 +12,9 @@ type Quiz struct {
 
 
 func main()  {
-	questionInfo, err := ReadCSV("problems.csv")
+	pathVar := flag.String("path", "problems.csv", "path to csv file with Quiz information")
+	flag.Parse()
+	questionInfo, err := ReadCSV(*pathVar)
 	if err != nil {
 		panic(err)
 	}
